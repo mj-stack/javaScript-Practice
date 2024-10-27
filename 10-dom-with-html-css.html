@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .amazon-button {
+      background-color: rgb(255, 216, 20);
+      color: black;
+      padding: 10px 60px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: Arial;
+      font-size: 18px;
+    }
+
+    .uber1 {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .uber2 {
+      background-color: rgb(230, 230, 230);
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gaming {
+      background-color: rgb(230, 230, 230);
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .js-gaming {
+      background-color: black;
+      color: white;
+    }
+
+    .cost-input {
+      padding: 10px;
+      font-size: 15px;
+      font-family: Arial;
+    }
+
+    .calculate-button {
+      border: none;
+      padding: 13px 15px;
+      background-color: green;
+      color: white;
+      font-size: 15px;
+      font-family: Arial;
+    }
+
+    .error-line {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <button class="amazon-button">Add to Cart</button>
+  <br> <hr>
+
+  <button class="uber1">
+    Request now
+  </button>
+  <button class="uber2">
+    Schedule for later
+  </button>
+  <br> <hr>
+
+  <button class="js-button">Test</button>
+  <br> <hr>
+
+  <button class="gaming" onclick="
+    changeColor('.gaming');
+  ">Gaming</button>
+  <br> <hr>
+
+  <button class="gaming js-gaming2" onclick="
+    changeColor('.js-gaming2');
+  ">
+    Gaming
+  </button>
+  <button class="gaming js-music" onclick="
+    changeColor('.js-music');
+  ">
+    Music
+  </button>
+  <button class="gaming js-tech" onclick="
+    changeColor('.js-tech');
+  ">
+    Tech
+  </button>
+  <br> <hr>
+
+  <button class="gaming js-gaming3" onclick="changeColor2('.js-gaming3')">
+    Gaming
+  </button>
+  <button class="gaming js-music2" onclick="changeColor2('.js-music2')">
+    Music
+  </button>
+  <button class="gaming js-tech2" onclick="changeColor2('.js-tech2')">
+    Tech
+  </button>
+  <br><br><hr><br>
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping.</p>
+  <p>Orders over $40 = FREE shipping.</p>
+  <input type="text" placeholder="Cost of order" class="js-input-element cost-input" onkeydown="calculateTotalUsingKeydown(event);">
+  <button onclick="
+    calculateTotal();
+  " class="calculate-button">Calculate</button>
+  <p class="js-final-cost"></p>
+  <p class="error-line"></p>
+  <br>
+  <br>
+  <br>
+
+  <script>
+    const button = document.querySelector('.js-button');
+    console.log(button.classList.contains('js-button'));
+
+    function changeColor(selector) {
+      const gamingButton = document.querySelector(selector);
+
+      if (!gamingButton.classList.contains('js-gaming')) {
+        gamingButton.classList.add('js-gaming');
+      } else {
+        gamingButton.classList.remove('js-gaming');
+      }
+    }
+
+    function changeColor2(selector) {
+      const gamingButton = document.querySelector(selector);
+
+      if (!gamingButton.classList.contains('js-gaming')) {
+        turnOffPreviousButton();
+        gamingButton.classList.add('js-gaming');
+      } else {
+        gamingButton.classList.remove('js-gaming');
+      }
+    }
+
+    function turnOffPreviousButton() {
+      const previousButton = document.querySelector('.js-gaming');
+
+      if (previousButton) {
+        previousButton.classList.remove('js-gaming');
+      }
+    }
+
+    function calculateTotal() {
+      let cost = Number(document.querySelector('.js-input-element').value);
+
+        if (cost < 0) {
+            document.querySelector('.error-line').innerHTML = `Error: cost cannot be less than $0`;
+          } else if (cost < 40 && cost >= 0) {
+            cost += 10;
+            document.querySelector('.error-line').innerHTML = ``;
+            document.querySelector('.js-final-cost').innerHTML = `$${cost}`;
+          } else if (cost >= 40) {
+            document.querySelector('.error-line').innerHTML = ``;
+            document.querySelector('.js-final-cost').innerHTML = `$${cost}`;
+          }
+      }
+
+      function calculateTotalUsingKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+  </script>
+</body>
+</html>

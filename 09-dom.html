@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <button class="button">9a</button> -->
+  <!-- <button class="button">9b</button> -->
+   <!-- <button class="heads" onclick="checkOutcome('Heads');">Heads</button>
+   <button class="tails" onclick="checkOutcome('Tails');">Tails</button>
+   <p class="outcome"></p> -->
+    <!-- <input type="text" placeholder="Name" class="js-name-input" onkeydown="displayNameWithKeydown(event)">
+    <button onclick="
+      displayName();
+    ">Submit</button>
+    <p class="js-display-name"></p> -->
+    <!-- <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="text" placeholder="Cost of order" class="js-input-element" onkeydown="calculateTotalUsingKeydown(event);">
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-final-cost"></p> -->
+    <input type="text" onkeyup="realTime();" class="js-input">
+    <p class="js-display"></p>
+
+  <script>
+    // console.log(document.querySelector('button'));
+    // document.querySelector('.button').innerHTML = '9b done!';
+    // function checkOutcome(side) {
+    //   if (side === 'Heads') {
+    //     document.querySelector('.outcome').innerHTML = 'You chose: Heads';
+    //   } else if (side === 'Tails') {
+    //     document.querySelector('.outcome').innerHTML = 'You chose: Tails';
+    //   }
+    // }
+    // function displayName() {
+    //   let name = document.querySelector('.js-name-input').value;
+      
+    //   document.querySelector('.js-display-name').innerHTML = `Your name is ${name}`;
+    // }
+
+    // function displayNameWithKeydown(event) {
+    //   if (event.key === 'Enter') {
+    //     displayName();
+    //   }
+    // }
+    // function calculateTotal() {
+    //   let cost = Number(document.querySelector('.js-input-element').value) * 100;
+      
+    //   console.log(cost);
+
+    //   if (cost < 4000) {
+    //     cost += 1000;
+    //   }
+      
+    //   console.log(cost);
+
+    //   document.querySelector('.js-final-cost').innerHTML = `$${cost / 100}`;
+    // }
+
+    // function calculateTotalUsingKeydown(event) {
+    //   if (event.key === 'Enter') {
+    //     calculateTotal();
+    //   }
+    // }
+
+    function realTime() {
+      const inputElemet = document.querySelector('.js-input');
+      document.querySelector('.js-display').innerHTML = inputElemet.value;
+    }
+  </script>
+</body>
+</html>
