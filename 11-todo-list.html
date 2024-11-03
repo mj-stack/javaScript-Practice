@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/11-todo-list.css">
+</head>
+<body>
+  <p style="font-family: Arial;">Todo List Practice 1</p>
+  <input type="text" placeholder="Todo name" class="js-input-value">
+  <button onclick="
+    todoList();
+  ">Add</button>
+
+  <p style="font-family: Arial; margin-top: 50px;">Todo List Practice 2</p>
+  <input type="text" placeholder="Todo name" class="js-input">
+  <button onclick="
+    updateTask();
+  ">Add</button>
+  <div class="task-div"></div>
+
+  <p style="font-family: Arial; margin-top: 50px;">Todo List</p>
+  <div class="input-div">
+    <input type="text" class="js-todo-input todoNameInput" placeholder="Todo name">
+    <input type="date" class="js-todo-dueDate todoDueDateInput">
+    <button onclick="addTodo();" class="addButton">Add</button>
+  </div>
+  <div class="displayTodo"></div>
+
+  <script src="11-todo-list.js"></script>
+</body>
+</html>
